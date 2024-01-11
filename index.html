@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Car</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Rent a Car</h1>
+
+        <!-- Información de Contacto -->
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="col-md-6">
+                <label for="apellido">Apellido:</label>
+                <input type="text" class="form-control" id="apellido">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control" id="fechaNacimiento">
+            </div>
+            <div class="col-md-6">
+                <label for="nacionalidad">Nacionalidad:</label>
+                <input type="text" class="form-control" id="nacionalidad">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="emailContacto">Email de Contacto:</label>
+                <input type="text" class="form-control" id="emailContacto">
+            </div>
+            <div class="col-md-6">
+                <label for="numeroContacto">Número de Contacto:</label>
+                <input type="text" class="form-control" id="numeroContacto">
+            </div>
+        </div>
+
+        <!-- Identificación -->
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="tipoIdentificacion">Tipo de Identificación:</label>
+                <select class="form-control" id="tipoIdentificacion">
+                    <option value="DNI">DNI</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="RUT">RUT</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="numeroIdentificacion">Número de Identificación:</label>
+                <input type="text" class="form-control" id="numeroIdentificacion">
+            </div>
+        </div>
+
+        <!-- Carnet de Conducir -->
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="tipoCarnetConducir">Tipo de Carnet de Conducir:</label>
+                <select class="form-control" id="tipoCarnetConducir">
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="A3">A3</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                    <option value="C3">C3</option>
+                    <option value="D1">D1</option>
+                    <option value="D2">D2</option>
+                    <option value="D3">D3</option>
+                    <option value="D4">D4</option>
+                    <option value="E1">E1</option>
+                    <option value="E2">E2</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="autoSelect">Seleccione un Auto:</label>
+                <select class="form-control" id="autoSelect" onchange="actualizarPrecio()">
+                    <option value="sedan">Sedán - $50 por día</option>
+                    <option value="suv">SUV - $70 por día</option>
+                    <option value="convertible">Convertible - $100 por día</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Fechas de Alquiler -->
+        <div class="form-group">
+            <label for="fechaInicio">Fecha de Inicio de Alquiler:</label>
+            <input type="date" class="form-control" id="fechaInicio" onchange="actualizarPrecio()">
+        </div>
+
+        <div class="form-group">
+            <label for="fechaFin">Fecha de Fin de Alquiler:</label>
+            <input type="date" class="form-control" id="fechaFin" onchange="actualizarPrecio()">
+        </div>
+
+        <div class="form-group">
+            <label for="totalPagar">Total a Pagar:</label>
+            <p id="totalPagar" class="form-control">$0</p>
+        </div>
+
+        <!-- Buscador de Lugares -->
+        <div class="form-group">
+            <label for="tipoLugar">Te recomendamos estos lugares para visitar (elegi el tipo):</label>
+            <select class="form-control" id="tipoLugar" onchange="buscarLugar()">
+                <option value="paisaje">Paisaje</option>
+                <option value="museo">Museo</option>
+                <option value="aventura">Aventura</option>
+            </select>
+        </div>
+
+        <!-- Resultados del Buscador -->
+        <div id="resultadosLugares" class="form-group">
+            <!-- Aquí se mostrarán los resultados del buscador -->
+        </div>
+
+        <button class="btn btn-primary" onclick="alquilarAuto()">Alquilar Auto</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="rentacar.js"></script>
+</body>
+</html>
+
